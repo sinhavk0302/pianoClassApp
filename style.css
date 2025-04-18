@@ -1,155 +1,206 @@
-/* Basic Styling */
+/* --- Piano Theme Styles --- */
+
+/* Basic Reset & Body Styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Using Lato as the primary readable font */
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
-    color: #333;
+    /* Soft, warm off-white background */
+    background-color: #fdfaf6;
+    color: #4a4a4a; /* Slightly softer dark grey */
 }
 
+/* Header Styling */
 header {
-    background-color: #3498db;
+    /* Deep, dark blue-grey, reminiscent of classic pianos or concert halls */
+    background-color: #2c3e50;
     color: #fff;
-    padding: 1rem 0;
+    padding: 1.5rem 0; /* More padding */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
+header h1 {
+    /* Using the elegant Playfair Display font */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em; /* Larger heading */
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Main Content Area */
 main {
     max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 30px;
+    /* Slightly warmer background for the main content */
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
     border-radius: 8px;
 }
 
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    font-size: 0.9em;
-    color: #777;
-}
-
-h1, h2, h3, h4 {
+h2, h3, h4 {
+    /* Using the main dark color for headings */
     color: #2c3e50;
+    font-family: 'Playfair Display', serif; /* Consistent elegant font for headings */
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* General Button Styling */
 button {
-    padding: 8px 15px;
-    background-color: #3498db;
+    padding: 10px 20px; /* Slightly larger buttons */
+    /* A warm, muted gold/brass accent color */
+    background-color: #c5a773;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.2s ease;
+    font-weight: bold; /* Bolder button text */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Lato', sans-serif; /* Ensure buttons use Lato */
 }
 
 button:hover:not(:disabled) {
-    background-color: #2980b9;
+    background-color: #b0935e; /* Darken gold on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
 }
 
 button:disabled {
-    background-color: #bdc3c7;
+    background-color: #ccc; /* Standard grey for disabled */
     cursor: not-allowed;
+    transform: none;
 }
 
 /* Scheduler Specific Styles */
 #scheduler {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Space between calendar, time slots, confirmation */
+    gap: 35px; /* Increased space */
 }
 
-/* Calendar */
+/* Calendar Container */
 #calendar-container {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #fff;
+    border: 1px solid #e0e0e0; /* Lighter border */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fdfdfd; /* Very light background */
 }
 
 .month-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .month-navigation h3 {
     margin: 0;
-    color: #3498db;
+    color: #2c3e50; /* Dark heading color */
+    font-size: 1.5em;
 }
+
+/* Style Prev/Next Month Buttons */
+.month-navigation button {
+    background-color: #5dade2; /* A contrasting but soft blue */
+}
+.month-navigation button:hover:not(:disabled) {
+    background-color: #4a9fcc;
+}
+
 
 .calendar-header,
 #calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 6px; /* Slightly more gap */
     text-align: center;
 }
 
 .calendar-header div {
     font-weight: bold;
-    padding-bottom: 5px;
-    color: #7f8c8d;
+    padding-bottom: 10px;
+    color: #7f8c8d; /* Muted grey for day names */
+    font-size: 0.9em;
 }
 
 #calendar-grid div {
-    padding: 10px 5px;
-    border: 1px solid transparent; /* Placeholder for alignment */
-    border-radius: 4px;
-    min-height: 30px; /* Ensure cells have height */
+    padding: 12px 5px; /* More padding in cells */
+    border: 1px solid #f0f0f0; /* Very light border */
+    border-radius: 5px;
+    min-height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 #calendar-grid .day {
     cursor: pointer;
-    border: 1px solid #eee;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    background-color: #fff; /* White background for days */
 }
 
-#calendar-grid .day:hover {
-    background-color: #ecf0f1;
+#calendar-grid .day:hover:not(.past):not(.selected) {
+    background-color: #f5f5f5; /* Subtle hover */
+    border-color: #dcdcdc;
 }
 
+/* Available days get the gold accent */
 #calendar-grid .day.available {
     font-weight: bold;
-    border: 1px solid #2ecc71; /* Green border for available days */
+    border: 2px solid #c5a773; /* Gold border */
+    color: #a08458; /* Darker gold text */
 }
-#calendar-grid .day.available:hover {
-     background-color: #d0f0e0;
+#calendar-grid .day.available:hover:not(.selected) {
+     background-color: #fdf3e6; /* Light gold background on hover */
 }
 
+/* Selected day uses the contrasting blue */
 #calendar-grid .day.selected {
-    background-color: #3498db;
+    background-color: #5dade2;
     color: white;
-    border-color: #2980b9;
+    border-color: #4a9fcc;
+    font-weight: bold;
 }
 
 #calendar-grid .empty {
     background-color: transparent;
+    border: 1px solid transparent;
     cursor: default;
 }
 
 #calendar-grid .past {
     color: #bdc3c7;
     cursor: not-allowed;
-    background-color: #fdfdfd;
-     border: 1px solid #f0f0f0;
+    background-color: #f9f9f9;
+    border: 1px solid #f0f0f0;
 }
 
 
 /* Time Slots */
 #time-slots-container {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
     background-color: #fdfdfd;
 }
 
@@ -158,55 +209,88 @@ button:disabled {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 12px; /* More gap */
+    margin-top: 15px;
 }
 
 #time-slots-list li {
-    background-color: #ecf0f1;
-    padding: 8px 12px;
-    border-radius: 4px;
+    background-color: #f0f0f0; /* Light grey background */
+    padding: 10px 15px; /* More padding */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    border: 1px solid #bdc3c7;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    border: 1px solid #dcdcdc;
+    color: #555;
 }
 
-#time-slots-list li:hover {
-    background-color: #dadedf;
+#time-slots-list li:hover:not(.selected):not(.no-slots) {
+    background-color: #e0e0e0; /* Darker grey on hover */
+    border-color: #c0c0c0;
+    transform: translateY(-1px);
 }
 
+/* Selected time slot uses the gold accent */
 #time-slots-list li.selected {
-    background-color: #2ecc71; /* Green for selected time */
+    background-color: #c5a773;
     color: white;
-    border-color: #27ae60;
+    border-color: #b0935e;
+    font-weight: bold;
 }
 
 #time-slots-list li.no-slots {
     cursor: default;
     background-color: transparent;
     border: none;
-    color: #777;
+    color: #888;
+    padding: 10px 0; /* Adjust padding */
 }
 #time-slots-list li.no-slots:hover {
     background-color: transparent;
+    transform: none;
 }
 
 
 /* Booking Confirmation */
 #booking-confirmation {
-    border-top: 1px dashed #ccc;
-    padding-top: 20px;
-    margin-top: 10px;
+    border-top: 1px solid #eee; /* Lighter separator */
+    padding-top: 25px;
+    margin-top: 15px;
+    text-align: center; /* Center confirmation */
 }
 
 #selection-details {
     font-weight: bold;
-    color: #3498db;
-    min-height: 1.6em; /* Prevent layout jump */
+    color: #2c3e50; /* Dark color for selection text */
+    min-height: 1.6em;
+    font-size: 1.1em;
+    margin-bottom: 15px;
 }
 
+/* Style the main booking button */
+#book-button {
+    padding: 12px 25px; /* Make it prominent */
+    font-size: 1.1em;
+    /* Use the gold color */
+    background-color: #c5a773;
+}
+#book-button:hover:not(:disabled) {
+     background-color: #b0935e;
+}
+
+
 .note {
-    font-size: 0.85em;
-    color: #e74c3c; /* Red note */
-    margin-top: 10px;
+    font-size: 0.9em;
+    color: #7f8c8d; /* Muted grey for the note */
+    margin-top: 15px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #888; /* Lighter grey */
+    background-color: #f8f8f8; /* Slightly different background for footer */
+    border-top: 1px solid #eee;
 }
