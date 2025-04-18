@@ -294,3 +294,143 @@ footer {
     background-color: #f8f8f8; /* Slightly different background for footer */
     border-top: 1px solid #eee;
 }
+
+/* --- Teacher Introduction Section Styles --- */
+#teacher-intro {
+    max-width: 900px; /* Match main content width */
+    margin: 40px auto; /* Add more vertical spacing */
+    padding: 35px; /* Slightly more padding */
+    background-color: #fdfdfd; /* Slightly different background to stand out */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Consistent shadow */
+    border-radius: 8px;
+    border-left: 5px solid #c5a773; /* Add a gold accent border */
+}
+
+#teacher-intro h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    /* font-size: 1.8em; Inherited */
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    gap: 35px; /* Space between photo/video and text */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.intro-media {
+    flex: 0 0 38%; /* Allocate slightly less than 40% for media */
+    /* Or use flex-basis: 38%; */
+}
+
+.teacher-photo {
+    display: block;
+    width: 100%; /* Make photo fill its container */
+    height: auto;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12); /* Slightly stronger shadow */
+    margin-bottom: 25px; /* Space below photo if video is also present */
+    border: 1px solid #eee; /* Subtle border */
+}
+
+/* Responsive Video Container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px; /* Match photo */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12); /* Match photo */
+    border: 1px solid #eee; /* Match photo */
+}
+
+.video-container iframe { /* Target the iframe directly */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-text {
+    flex: 1; /* Text takes remaining space */
+}
+
+.intro-text h3 {
+    margin-top: 0; /* Remove default top margin */
+    font-size: 1.6em; /* Slightly larger teacher name */
+    color: #c5a773; /* Use accent color for name */
+    margin-bottom: 15px;
+}
+
+.intro-text p {
+    margin-bottom: 1.2em;
+    line-height: 1.7; /* Improve readability */
+    color: #555; /* Slightly softer text color */
+}
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Optional Call-to-Action Button Styling */
+.cta-button {
+    display: inline-block; /* Allow margin/padding */
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #5dade2; /* Use the contrasting blue */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.cta-button:hover {
+    background-color: #4a9fcc; /* Darker blue */
+    transform: translateY(-1px);
+}
+
+
+/* --- Responsive adjustments for Introduction --- */
+@media (max-width: 768px) {
+    #teacher-intro {
+        margin: 30px auto;
+        padding: 25px;
+        border-left-width: 4px; /* Slightly thinner border */
+    }
+
+    .intro-content {
+        flex-direction: column; /* Stack on smaller screens */
+        align-items: center; /* Center items when stacked */
+    }
+
+    .intro-media {
+        flex-basis: auto; /* Reset flex-basis */
+        width: 80%; /* Control width when stacked */
+        max-width: 350px; /* Limit max size */
+        margin-bottom: 25px;
+    }
+
+     .intro-text {
+        width: 100%;
+        text-align: center; /* Center text */
+    }
+    .intro-text h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+     #teacher-intro {
+        padding: 20px;
+    }
+    .intro-media {
+        width: 90%; /* Allow slightly wider media on very small screens */
+    }
+     .intro-text h3 {
+        font-size: 1.4em;
+    }
+}
