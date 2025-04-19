@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Piano Classes with Hardik Pandya</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Consider adding Font Awesome for icons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,49 +27,80 @@
         </nav>
     </header>
 
-    <!-- Teacher Introduction Section (Hero) -->
-    <section id="teacher-intro">
-        <h2>Meet Your Instructor</h2>
+    <!-- Enhanced Teacher Introduction Section (Hero) -->
+    <section id="teacher-intro" class="hero-section">
+        <!-- Background image will be applied via CSS -->
+        <div class="hero-overlay"></div> <!-- Overlay for text readability -->
         <div class="intro-content">
             <div class="intro-media">
-                <img src="images/teacher-photo.jpg" alt="Photo of Hardik Pandya" class="teacher-photo">
-                <!-- Optional Video Placeholder -->
+                <!-- Image is now smaller or removed if background is sufficient -->
+                 <img src="images/teacher-photo.jpg" alt="Photo of Hardik Pandya" class="teacher-photo-small">
             </div>
             <div class="intro-text">
-                <h3>Hardik Pandya</h3>
+                <h2>Unlock Your Musical Potential</h2>
+                <h3>with Hardik Pandya</h3>
                 <p>
-                    Welcome! I'm a passionate pianist and dedicated educator with over [Number] years of experience sharing the joy of music... [Keep existing intro text or refine it]
+                    Passionate instruction tailored to your goals. Experience the joy of playing piano in a supportive and inspiring environment.
                 </p>
-                 <p>
-                    My teaching philosophy centers around creating a supportive and inspiring environment... [Keep existing intro text or refine it]
-                </p>
-                <a href="schedule.html" class="cta-button" style="background-color: #c5a773; margin-top: 15px;">Schedule Your Trial Lesson!</a>
+                <a href="schedule.html" class="cta-button hero-cta">Schedule Your Trial Lesson!</a>
             </div>
         </div>
     </section>
 
     <main>
         <!-- Why Learn With Us Section -->
-        <section class="content-section">
-            <h2 class="section-title">Why Choose Us?</h2>
-            <!-- Add 2-3 key benefit points with icons/short descriptions -->
-            <p style="text-align: center;">Personalized lessons, flexible scheduling, proven results...</p>
+        <section class="content-section features-section">
+            <h2 class="section-title">Why Choose Our Lessons?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">♪</div> <!-- Placeholder Icon -->
+                    <h4>Personalized Approach</h4>
+                    <p>Lessons adapted to your unique learning style, pace, and musical interests.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">♫</div> <!-- Placeholder Icon -->
+                    <h4>Experienced Instructor</h4>
+                    <p>Benefit from years of teaching and performance experience with Hardik Pandya.</p>
+                </div>
+                <div class="feature-item">
+                     <div class="feature-icon">♩</div> <!-- Placeholder Icon -->
+                    <h4>Flexible Scheduling</h4>
+                    <p>Easily book and manage your lessons online to fit your busy life.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Lesson Overview Section -->
-        <section class="content-section">
-            <h2 class="section-title">Lessons Offered</h2>
-            <p style="text-align: center;">From absolute beginners to advanced players, we offer tailored lessons in various styles. <a href="classes.html">Learn more about our classes</a>.</p>
-            <!-- Maybe add icons for Beginner, Intermediate, Advanced -->
+        <section class="content-section lessons-overview-section" style="background-color: #f8f9fa;">
+            <h2 class="section-title">Lessons for Every Level</h2>
+             <div class="feature-grid">
+                <div class="feature-item">
+                    <!-- Icon Placeholder -->
+                    <h4>Beginner</h4>
+                    <p>Start your journey with fundamental techniques and simple, enjoyable pieces.</p>
+                </div>
+                <div class="feature-item">
+                    <!-- Icon Placeholder -->
+                    <h4>Intermediate</h4>
+                    <p>Develop your skills further with more complex music and expressive playing.</p>
+                </div>
+                <div class="feature-item">
+                     <!-- Icon Placeholder -->
+                    <h4>Advanced</h4>
+                    <p>Master challenging repertoire and refine your artistry for performance or exams.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px;"><a href="classes.html" class="cta-button secondary-cta">Explore All Classes</a></p>
         </section>
 
          <!-- Testimonial Snippet -->
-         <section class="content-section" style="background-color: #f8f9fa; padding: 40px 20px;">
+         <section class="content-section testimonial-section">
             <h2 class="section-title">What Students Say</h2>
-            <blockquote style="text-align: center; font-style: italic; max-width: 700px; margin: 0 auto;">
-                "Hardik Pandya is an amazing teacher! My playing has improved so much..." <br> - [Student Name]
+            <blockquote class="testimonial-quote">
+                <p>"Hardik Pandya is an amazing teacher! My playing has improved so much, and lessons are always fun and engaging."</p>
+                <cite>- [Student Name]</cite>
             </blockquote>
-            <p style="text-align: center; margin-top: 20px;"><a href="about.html#testimonials">Read more testimonials</a></p>
+            <p style="text-align: center; margin-top: 20px;"><a href="about.html#testimonials" class="simple-link">Read more testimonials</a></p>
         </section>
 
     </main>
@@ -77,6 +110,5 @@
         <!-- Add social media links if desired -->
     </footer>
 
-    <!-- No script needed for homepage unless adding dynamic elements -->
 </body>
 </html>

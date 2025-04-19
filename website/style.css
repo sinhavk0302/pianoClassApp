@@ -1,180 +1,242 @@
-/* --- Navigation Styles --- */
-header nav {
-    background-color: #3a4b5c; /* Slightly lighter than header for contrast */
-    padding: 0.5rem 0;
+/* --- Enhanced Hero Section --- */
+.hero-section {
+    position: relative; /* Needed for overlay positioning */
+    padding: 60px 20px; /* Adjust padding as needed */
+    min-height: 400px; /* Ensure minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-image: url('images/piano-background.jpg'); /* << ADD YOUR BACKGROUND IMAGE HERE */
+    background-size: cover;
+    background-position: center center;
+    color: #fff; /* White text for contrast */
+    margin-bottom: 0; /* Remove default margin from #teacher-intro */
+    border-radius: 0; /* Remove border-radius if applied previously */
+    box-shadow: none; /* Remove box-shadow if applied previously */
+    border-left: none; /* Remove border if applied previously */
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-header nav ul li {
-    display: inline-block; /* Horizontal layout */
-    margin: 0 15px; /* Spacing between links */
-}
-
-header nav ul li a {
-    color: #f0f0f0; /* Light text color */
-    text-decoration: none;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    padding: 8px 12px; /* Clickable area */
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-header nav ul li a:hover,
-header nav ul li a.active { /* Style for hover and active page */
-    background-color: #c5a773; /* Use accent color */
-    color: #fff; /* White text on accent */
-}
-
-/* Responsive Nav (Optional Basic Example) */
-@media (max-width: 768px) {
-    header nav ul li {
-        display: block; /* Stack links vertically */
-        margin: 8px 0; /* Adjust spacing */
-    }
-}
-
-/* --- Add other general styles as needed --- */
-.content-section {
-    padding: 30px 0; /* Vertical padding for sections within main */
-    border-bottom: 1px solid #eee; /* Separator line */
-}
-.content-section:last-child {
-    border-bottom: none;
-}
-
-h2.section-title { /* Consistent styling for section titles */
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #2c3e50;
-    font-family: 'Playfair Display', serif;
-}
-
-/* Basic Table Styling (for Pricing) */
-.pricing-table {
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.pricing-table th, .pricing-table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
-}
-.pricing-table th {
-    background-color: #f8f9fa; /* Light header background */
-    font-weight: bold;
-    color: #495057;
-}
-.pricing-table td {
-    background-color: #fff;
-}
-.pricing-table tr:nth-child(even) td {
-    background-color: #fdfdfd; /* Zebra striping */
-}
-.price {
-    font-weight: bold;
-    color: #c5a773; /* Accent color for price */
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.65); /* Dark blue-grey overlay with transparency */
+    z-index: 1; /* Below content */
 }
 
-/* Basic Form Styling (for Contact) */
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #4a4a4a;
-}
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Include padding in width */
-    font-family: 'Lato', sans-serif;
-    font-size: 1em;
-}
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-.contact-form button[type="submit"] {
-    /* Uses general button styles */
-    display: block; /* Make it block level */
-    width: auto; /* Allow natural width */
-    margin: 10px auto 0 auto; /* Center the button */
+/* Ensure intro-content is above the overlay */
+#teacher-intro .intro-content {
+    position: relative;
+    z-index: 2;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    max-width: 700px; /* Limit content width */
 }
 
-/* Basic Blog Post Listing */
-.blog-post-summary {
-    background-color: #fff;
-    padding: 20px;
+#teacher-intro .intro-media {
+    flex-basis: auto; /* Reset flex basis */
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-    border-left: 4px solid #5dade2; /* Different accent for blog */
+    max-width: 150px; /* Make photo smaller, like a profile pic */
 }
-.blog-post-summary h3 {
-    margin-top: 0;
+
+.teacher-photo-small { /* New class for smaller photo */
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Make it circular */
+    border: 3px solid #fff; /* White border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#teacher-intro .intro-text {
+    color: #fff; /* Ensure text is white */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Add subtle shadow for readability */
+}
+
+#teacher-intro .intro-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em; /* Larger main heading */
+    margin-bottom: 5px;
+    color: #fff;
+}
+#teacher-intro .intro-text h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400; /* Lighter weight for subtitle */
+    color: #eee; /* Slightly off-white */
+    margin-bottom: 20px;
+}
+
+#teacher-intro .intro-text p {
+    font-size: 1.1em;
+    color: #f0f0f0; /* Lighter paragraph text */
+    margin-bottom: 25px;
+}
+
+.hero-cta { /* Style the main CTA button in the hero */
+    padding: 12px 30px;
+    font-size: 1.1em;
+    background-color: #c5a773; /* Gold accent */
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.hero-cta:hover {
+    background-color: #b0935e; /* Darker gold */
+    transform: translateY(-2px);
+}
+
+
+/* --- Features Section Styling --- */
+.features-section {
+    padding: 50px 20px;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.feature-item {
+    flex: 1; /* Allow items to grow and shrink */
+    min-width: 220px; /* Minimum width before wrapping */
+    max-width: 300px; /* Maximum width */
+    text-align: center;
+    padding: 20px;
+    background-color: #fff; /* White background for items */
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 2.5em; /* Make icons larger */
+    color: #c5a773; /* Use gold accent color */
+    margin-bottom: 15px;
+    /* If using Font Awesome, target the <i> tag instead */
+    /* e.g., .feature-item i { font-size: 2.5em; ... } */
+}
+
+.feature-item h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    font-size: 1.3em;
     color: #2c3e50;
 }
-.blog-post-summary .meta {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 10px;
+
+.feature-item p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
 }
-.blog-post-summary .read-more {
-    display: inline-block;
+
+/* --- Lessons Overview Section --- */
+.lessons-overview-section {
+     padding: 50px 20px;
+}
+/* Uses .feature-grid and .feature-item styles from above */
+/* Style the secondary CTA button */
+.secondary-cta {
+    background-color: #5dade2; /* Blue accent */
+    padding: 10px 25px;
+}
+.secondary-cta:hover {
+    background-color: #4a9fcc;
+}
+
+/* --- Testimonial Section --- */
+.testimonial-section {
+    padding: 50px 20px;
+}
+
+.testimonial-quote {
+    text-align: center;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+}
+/* Add quote marks visually */
+.testimonial-quote::before {
+    content: '“';
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    color: #e0e0e0;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.testimonial-quote p {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+}
+
+.testimonial-quote cite {
+    font-style: normal;
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
     margin-top: 10px;
-    color: #c5a773;
+}
+
+.simple-link { /* Style for simple text links */
+    color: #5dade2;
     text-decoration: none;
     font-weight: bold;
 }
-.blog-post-summary .read-more:hover {
+.simple-link:hover {
     text-decoration: underline;
 }
 
-/* Basic FAQ Styling */
-.faq-item details {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    margin-bottom: 10px;
+
+/* --- General Adjustments --- */
+.content-section {
+    border-top: 1px solid #eee; /* Use top border instead of bottom */
+    padding: 50px 20px; /* Standardized padding */
 }
-.faq-item summary {
-    padding: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none; /* Remove default focus outline */
-    color: #3a4b5c;
-    list-style: none; /* Remove default marker */
-    position: relative;
-}
-/* Custom marker */
-.faq-item summary::before {
-    content: '+';
-    position: absolute;
-    right: 15px;
-    font-size: 1.2em;
-    transition: transform 0.2s ease-in-out;
-}
-.faq-item details[open] summary::before {
-    transform: rotate(45deg);
+.content-section:first-of-type {
+    border-top: none; /* Remove border above the first section */
 }
 
-.faq-item div { /* Content inside details */
-    padding: 0 15px 15px 15px;
-    line-height: 1.7;
-    color: #555;
+h2.section-title {
+    margin-bottom: 40px; /* More space below section titles */
+}
+
+/* Ensure footer has some space */
+footer {
+    margin-top: 0; /* Remove margin if content-section provides padding */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Responsive adjustments for Hero */
+@media (max-width: 768px) {
+    #teacher-intro .intro-text h2 {
+        font-size: 2.2em;
+    }
+     #teacher-intro .intro-text h3 {
+        font-size: 1.3em;
+    }
+    .hero-section {
+        min-height: 350px;
+        padding: 40px 15px;
+    }
 }
