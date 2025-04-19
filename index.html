@@ -1,100 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Class Scheduling</title>
+    <title>Welcome - Piano Classes with [Teacher's Name]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Schedule Your Piano Class</h1>
+        <h1>Piano Classes with [Teacher's Name]</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- ========== Teacher Introduction Section ========== -->
+
+    <!-- Teacher Introduction Section (Hero) -->
     <section id="teacher-intro">
         <h2>Meet Your Instructor</h2>
         <div class="intro-content">
             <div class="intro-media">
-                <!-- Teacher Photo -->
                 <img src="images/teacher-photo.jpg" alt="Photo of [Teacher's Name]" class="teacher-photo">
-
-                <!-- Optional Video Placeholder - Uncomment and replace src if you have one -->
-                <!--
-                <div class="video-container">
-                    <iframe class="teacher-video"
-                        width="560" height="315"
-                        src="YOUR_YOUTUBE_OR_VIMEO_EMBED_LINK"
-                        title="Teacher Introduction Video"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                -->
+                <!-- Optional Video Placeholder -->
             </div>
             <div class="intro-text">
                 <h3>[Teacher's Name]</h3>
                 <p>
-                    Welcome! I'm a passionate pianist and dedicated educator with over [Number] years of experience sharing the joy of music. My journey began at the age of [Age], and I've since [mention a key achievement or qualification, e.g., graduated from X University, performed at Y venue].
+                    Welcome! I'm a passionate pianist and dedicated educator with over [Number] years of experience sharing the joy of music... [Keep existing intro text or refine it]
                 </p>
-                <p>
-                    My teaching philosophy centers around creating a supportive and inspiring environment. I believe in building a strong technical foundation while nurturing musicality and creativity. We'll explore various styles, from classical masterpieces to contemporary favorites, tailored to your interests.
+                 <p>
+                    My teaching philosophy centers around creating a supportive and inspiring environment... [Keep existing intro text or refine it]
                 </p>
-                <p>
-                    Whether you're taking your very first steps on the keyboard or looking to refine your advanced skills, I'm here to guide you. Let's unlock your musical potential together!
-                </p>
-                <!-- Optional: Add a call to action or link -->
-                <!-- <a href="#scheduler" class="cta-button">Ready to Start? Schedule Your First Class!</a> -->
+                <a href="schedule.html" class="cta-button" style="background-color: #c5a773; margin-top: 15px;">Schedule Your Trial Lesson!</a>
             </div>
         </div>
     </section>
-    <!-- ========== End Teacher Introduction Section ========== -->
-
-    <main> <!-- This existing tag should follow the new section -->
-        <section id="scheduler">
-            <h2>Select a Date and Time</h2>
 
     <main>
-        <section id="scheduler">
-            <h2>Select a Date and Time</h2>
-
-            <div id="calendar-container">
-                <div class="month-navigation">
-                    <button id="prev-month">&lt; Prev</button>
-                    <h3 id="month-year">Month Year</h3>
-                    <button id="next-month">Next &gt;</button>
-                </div>
-                <div class="calendar-header">
-                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-                </div>
-                <div id="calendar-grid">
-                    <!-- Calendar days will be generated by JavaScript -->
-                </div>
-            </div>
-
-            <div id="time-slots-container">
-                <h3>Available Times for <span id="selected-date-display">Selected Date</span>:</h3>
-                <ul id="time-slots-list">
-                    <!-- Time slots will be generated by JavaScript -->
-                    <li>Please select a date with available slots.</li>
-                </ul>
-            </div>
-
-            <div id="booking-confirmation">
-                <h4>Your Selection:</h4>
-                <p id="selection-details">No slot selected.</p>
-                <button id="book-button" disabled>Book Now</button>
-                <p class="note">Note: This is a demo. Clicking 'Book Now' will not create a real booking.</p>
-            </div>
+        <!-- Why Learn With Us Section -->
+        <section class="content-section">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <!-- Add 2-3 key benefit points with icons/short descriptions -->
+            <p style="text-align: center;">Personalized lessons, flexible scheduling, proven results...</p>
         </section>
+
+        <!-- Lesson Overview Section -->
+        <section class="content-section">
+            <h2 class="section-title">Lessons Offered</h2>
+            <p style="text-align: center;">From absolute beginners to advanced players, we offer tailored lessons in various styles. <a href="classes.html">Learn more about our classes</a>.</p>
+            <!-- Maybe add icons for Beginner, Intermediate, Advanced -->
+        </section>
+
+         <!-- Testimonial Snippet -->
+         <section class="content-section" style="background-color: #f8f9fa; padding: 40px 20px;">
+            <h2 class="section-title">What Students Say</h2>
+            <blockquote style="text-align: center; font-style: italic; max-width: 700px; margin: 0 auto;">
+                "[Teacher's Name] is an amazing teacher! My playing has improved so much..." <br> - [Student Name]
+            </blockquote>
+            <p style="text-align: center; margin-top: 20px;"><a href="about.html#testimonials">Read more testimonials</a></p>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2023 Piano Studio</p>
+        <p>&copy; 2023 Piano Studio | [Teacher's Name]</p>
+        <!-- Add social media links if desired -->
     </footer>
 
-    <script src="script.js"></script>
+    <!-- No script needed for homepage unless adding dynamic elements -->
 </body>
 </html>

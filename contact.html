@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Piano Lessons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Piano Classes with [Teacher's Name]</h1>
+         <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">Have questions or ready to start your musical journey? Contact us using the form below or via email/phone.</p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <!-- Contact Form -->
+                <div style="flex: 2; min-width: 300px;">
+                    <h3>Send Us a Message</h3>
+                    <form action="#" method="POST" class="contact-form"> <!-- Needs backend action URL -->
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Send Message</button>
+                            <p class="note" style="text-align: center; margin-top: 10px;">Note: Form submission requires a backend.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> <a href="mailto:[your-email]@[domain.com]">[your-email]@[domain.com]</a></p>
+                    <p><strong>Phone:</strong> [Your Phone Number]</p>
+                    <!-- <p><strong>Studio Address:</strong> [Your Address - if applicable]</p> -->
+
+                    <!-- Optional: Embedded Map Placeholder -->
+                    <!-- <div style="margin-top: 20px; height: 250px; background-color: #eee; display: flex; align-items: center; justify-content: center; color: #777; border-radius: 5px;">(Map Placeholder)</div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Piano Studio | [Teacher's Name]</p>
+    </footer>
+
+</body>
+</html>
