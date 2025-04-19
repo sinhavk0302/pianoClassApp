@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
+    // Ensure these elements exist in your schedule.html
     const monthYearDisplay = document.getElementById('month-year');
     const calendarGrid = document.getElementById('calendar-grid');
     const prevMonthButton = document.getElementById('prev-month');
@@ -9,6 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectionDetails = document.getElementById('selection-details');
     const bookButton = document.getElementById('book-button');
 
+    // Check if all essential elements were found
+    if (!monthYearDisplay || !calendarGrid || !prevMonthButton || !nextMonthButton || !timeSlotsList || !selectedDateDisplay || !selectionDetails || !bookButton) {
+        console.error("One or more essential DOM elements for the scheduler were not found. Check IDs in schedule.html.");
+        // Optionally display an error message to the user on the page
+        // document.getElementById('scheduler').innerHTML = '<p style="color: red;">Error: Could not initialize the scheduler. Please contact support.</p>';
+        return; // Stop execution if elements are missing
+    }
+
     // --- State ---
     let currentDate = new Date();
     let selectedDate = null; // Store as 'YYYY-MM-DD' string
@@ -16,27 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Simulated Availability Data ---
     // Keys are 'YYYY-MM-DD', values are arrays of 'HH:MM' available times
-    const availability = {
-        // Example: Add more dates and times as needed
-        // Make sure dates are in the future relative to when you test
-        // [getFutureDate(1)]: ["09:00", "10:00", "14:00"],
-        // [getFutureDate(3)]: ["11:00", "15:00", "16:00"],
-        // [getFutureDate(5)]: ["09:00", "10:00", "11:00", "14:00", "15:00"],
-        // [getFutureDate(8)]: ["10:00"],
-    };
+    // NOTE: In a real app, this would come from a server/backend
+    const availability = {};
 
     // Function to generate future dates for the example
     function getFutureDate(daysToAdd) {
         const date = new Date();
         date.setDate(date.getDate() + daysToAdd);
-        return date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        // Ensure month and day are two digits
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`; // Format as YYYY-MM-DD
     }
 
-    // Add some dynamic future dates to availability
+    // Add some dynamic future dates to availability for demonstration
     availability[getFutureDate(2)] = ["09:00", "10:00", "14:00"];
     availability[getFutureDate(4)] = ["11:00", "15:00", "16:00"];
     availability[getFutureDate(7)] = ["09:00", "10:00", "11:00", "14:00", "15:00"];
     availability[getFutureDate(10)] = ["10:00"];
+    availability[getFutureDate(11)] = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"]; // Add more slots
 
 
     // --- Functions ---
@@ -72,7 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const cellDate = new Date(year, month, day);
             cellDate.setHours(0, 0, 0, 0); // Normalize cell date
-            const dateString = cellDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+            // Use the same formatting as getFutureDate for consistency
+            const cellYear = cellDate.getFullYear();
+            const cellMonth = String(cellDate.getMonth() + 1).padStart(2, '0');
+            const cellDay = String(cellDate.getDate()).padStart(2, '0');
+            const dateString = `${cellYear}-${cellMonth}-${cellDay}`; // YYYY-MM-DD
 
             // Check if date is in the past
             if (cellDate < today) {
@@ -84,9 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     dayCell.dataset.date = dateString; // Store date string
                     dayCell.addEventListener('click', handleDateClick);
                 } else {
-                    // Still clickable if not past, just not marked available
-                     dayCell.dataset.date = dateString;
-                     dayCell.addEventListener('click', handleDateClick);
+                    // Make non-available future dates non-clickable or visually distinct if desired
+                    // For now, we allow clicking to show "No slots" message
+                    dayCell.dataset.date = dateString;
+                    dayCell.addEventListener('click', handleDateClick);
+                    // Optionally add a class like 'unavailable' for styling
+                    // dayCell.classList.add('unavailable');
                 }
             }
 
@@ -101,16 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleDateClick(event) {
         const clickedDate = event.target.dataset.date;
-        if (!clickedDate || event.target.classList.contains('past')) return; // Ignore clicks on past or non-date cells
+        // Only proceed if it's a valid date cell and not marked as 'past'
+        if (!clickedDate || event.target.classList.contains('past')) {
+            return;
+        }
 
         // Update selected date state
         selectedDate = clickedDate;
         selectedTime = null; // Reset time when new date is picked
 
         // Update UI
-        renderCalendar(currentDate.getFullYear(), currentDate.getMonth()); // Re-render to show selection
+        renderCalendar(currentDate.getFullYear(), currentDate.getMonth()); // Re-render to show selection highlight
         displayTimeSlots(clickedDate);
-        updateBookingDetails();
+        // updateBookingDetails is called within displayTimeSlots via resetSelection
     }
 
     function displayTimeSlots(dateString) {
@@ -130,12 +149,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             timeSlotsList.innerHTML = '<li class="no-slots">No available slots for this date.</li>';
         }
-         resetSelection(); // Clear booking details when date changes before time is picked
+         resetSelection(); // Clear booking details and disable button when date changes before time is picked
     }
 
      function handleTimeClick(event) {
         const clickedTime = event.target.dataset.time;
-        if (!clickedTime) return;
+        // Ensure the clicked element is actually a time slot li
+        if (!clickedTime || !event.target.matches('li') || event.target.classList.contains('no-slots')) {
+            return;
+        }
 
         selectedTime = clickedTime;
 
@@ -144,23 +166,27 @@ document.addEventListener('DOMContentLoaded', () => {
         allSlots.forEach(slot => slot.classList.remove('selected'));
         event.target.classList.add('selected');
 
-        updateBookingDetails();
+        updateBookingDetails(); // Update confirmation text and enable button
     }
 
     function updateBookingDetails() {
         if (selectedDate && selectedTime) {
+            // Note: This doesn't include the timezone from previous steps.
+            // If timezone is needed, it should be added back here.
             selectionDetails.textContent = `Selected: ${formatDateDisplay(selectedDate)} at ${selectedTime}`;
             bookButton.disabled = false;
         } else {
-             resetSelection();
+             // This case is handled by resetSelection, but good for clarity
+             selectionDetails.textContent = 'No slot selected.';
+             bookButton.disabled = true;
         }
     }
 
      function resetSelection() {
         selectionDetails.textContent = 'No slot selected.';
         bookButton.disabled = true;
-        selectedTime = null; // Ensure time is cleared if only date was selected
-        // Optionally clear time slot highlighting if needed
+        // selectedTime = null; // Resetting state variable if needed, though handleDateClick does this too
+        // Clear visual selection from time slots
         const allSlots = timeSlotsList.querySelectorAll('li');
         allSlots.forEach(slot => slot.classList.remove('selected'));
     }
@@ -168,16 +194,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleBooking() {
         if (selectedDate && selectedTime) {
-            // --- REAL APPLICATION WOULD SEND DATA TO SERVER HERE ---
+            // --- REAL APPLICATION WOULD SEND DATA (selectedDate, selectedTime, selectedTimezone) TO SERVER HERE ---
+            // Note: This doesn't include the timezone from previous steps.
             alert(`Booking Confirmed (Demo):\nDate: ${formatDateDisplay(selectedDate)}\nTime: ${selectedTime}\n\nThank you!`);
 
-            // Optional: Reset after booking
+            // --- SIMULATE REMOVING SLOT (for demo purposes only) ---
+            // In a real app, the server would handle this, and you'd refresh availability
+            if (availability[selectedDate]) {
+                availability[selectedDate] = availability[selectedDate].filter(time => time !== selectedTime);
+            }
+            // --- End Simulation ---
+
+
+            // Reset state and UI after booking
             selectedDate = null;
             selectedTime = null;
-            renderCalendar(currentDate.getFullYear(), currentDate.getMonth()); // Re-render calendar
-            timeSlotsList.innerHTML = '<li class="no-slots">Please select a date with available slots.</li>';
-            selectedDateDisplay.textContent = 'Selected Date';
-            resetSelection();
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth()); // Re-render calendar (will reset slots list)
+            // timeSlotsList.innerHTML = '<li class="no-slots">Please select a date with available slots.</li>'; // Already done by renderCalendar
+            // selectedDateDisplay.textContent = 'Selected Date'; // Already done by renderCalendar
+            // resetSelection(); // Already done by renderCalendar
 
         } else {
             alert("Please select both a date and a time slot.");
@@ -186,14 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeMonth(offset) {
         currentDate.setMonth(currentDate.getMonth() + offset);
-        // Deselect date when changing month
+        // Deselect date when changing month to avoid confusion
         selectedDate = null;
         selectedTime = null;
         renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
     }
 
     function formatDateDisplay(dateString) {
-        const date = new Date(dateString + 'T00:00:00'); // Add time part to avoid timezone issues
+        // Add time part 'T00:00:00' to ensure the date isn't interpreted in UTC and shifted
+        const date = new Date(dateString + 'T00:00:00');
         return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 
@@ -204,4 +240,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initial Render ---
     renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
-});
+
+}); // End of DOMContentLoaded listener
