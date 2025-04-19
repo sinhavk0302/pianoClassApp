@@ -1,242 +1,101 @@
-/* --- Enhanced Hero Section --- */
-.hero-section {
-    position: relative; /* Needed for overlay positioning */
-    padding: 60px 20px; /* Adjust padding as needed */
-    min-height: 400px; /* Ensure minimum height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-image: url('images/piano-background.jpg'); /* << ADD YOUR BACKGROUND IMAGE HERE */
-    background-size: cover;
-    background-position: center center;
-    color: #fff; /* White text for contrast */
-    margin-bottom: 0; /* Remove default margin from #teacher-intro */
-    border-radius: 0; /* Remove border-radius if applied previously */
-    box-shadow: none; /* Remove box-shadow if applied previously */
-    border-left: none; /* Remove border if applied previously */
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(44, 62, 80, 0.65); /* Dark blue-grey overlay with transparency */
-    z-index: 1; /* Below content */
-}
-
-/* Ensure intro-content is above the overlay */
-#teacher-intro .intro-content {
-    position: relative;
-    z-index: 2;
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: center;
-    max-width: 700px; /* Limit content width */
-}
-
-#teacher-intro .intro-media {
-    flex-basis: auto; /* Reset flex basis */
-    margin-bottom: 20px;
-    max-width: 150px; /* Make photo smaller, like a profile pic */
-}
-
-.teacher-photo-small { /* New class for smaller photo */
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 50%; /* Make it circular */
-    border: 3px solid #fff; /* White border */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-#teacher-intro .intro-text {
-    color: #fff; /* Ensure text is white */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Add subtle shadow for readability */
-}
-
-#teacher-intro .intro-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8em; /* Larger main heading */
-    margin-bottom: 5px;
-    color: #fff;
-}
-#teacher-intro .intro-text h3 {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.5em;
-    font-weight: 400; /* Lighter weight for subtitle */
-    color: #eee; /* Slightly off-white */
-    margin-bottom: 20px;
-}
-
-#teacher-intro .intro-text p {
-    font-size: 1.1em;
-    color: #f0f0f0; /* Lighter paragraph text */
-    margin-bottom: 25px;
-}
-
-.hero-cta { /* Style the main CTA button in the hero */
-    padding: 12px 30px;
-    font-size: 1.1em;
-    background-color: #c5a773; /* Gold accent */
-    color: #fff;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.hero-cta:hover {
-    background-color: #b0935e; /* Darker gold */
-    transform: translateY(-2px);
-}
-
-
-/* --- Features Section Styling --- */
-.features-section {
-    padding: 50px 20px;
-}
-
-.feature-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.feature-item {
-    flex: 1; /* Allow items to grow and shrink */
-    min-width: 220px; /* Minimum width before wrapping */
-    max-width: 300px; /* Maximum width */
-    text-align: center;
-    padding: 20px;
-    background-color: #fff; /* White background for items */
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.feature-icon {
-    font-size: 2.5em; /* Make icons larger */
-    color: #c5a773; /* Use gold accent color */
+/* --- Add Font Awesome Icon Styling --- */
+.feature-icon i {
+    font-size: 2.8em; /* Control icon size */
+    color: #c5a773; /* Gold accent color */
     margin-bottom: 15px;
-    /* If using Font Awesome, target the <i> tag instead */
-    /* e.g., .feature-item i { font-size: 2.5em; ... } */
+    display: inline-block; /* Needed for some animations/effects */
 }
 
-.feature-item h4 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
-    font-size: 1.3em;
-    color: #2c3e50;
+/* --- Optional: Add Subtle Animation to Feature Icons --- */
+/* The fa-beat class from Font Awesome provides a pulsing effect. */
+/* You can customize duration via inline style as shown in the HTML */
+/* Or globally: */
+/*
+.fa-beat {
+  animation-duration: 1.5s;
 }
+*/
 
-.feature-item p {
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.6;
+/* --- Optional: Decorative Divider --- */
+hr.musical-divider {
+    border: 0;
+    height: 2px; /* Thickness */
+    max-width: 200px; /* Width of the divider */
+    margin: 50px auto; /* Centering and spacing */
+    background-image: linear-gradient(to right, rgba(44, 62, 80, 0), rgba(44, 62, 80, 0.75), rgba(44, 62, 80, 0)); /* Faded gradient */
 }
+/* Alternative Divider - using a subtle pattern or SVG */
+/*
+hr.musical-divider {
+    border: 0;
+    height: 20px;
+    background-image: url('images/music-staff-pattern.svg'); // Replace with your pattern
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.1;
+    margin: 50px auto;
+}
+*/
 
-/* --- Lessons Overview Section --- */
-.lessons-overview-section {
-     padding: 50px 20px;
-}
-/* Uses .feature-grid and .feature-item styles from above */
-/* Style the secondary CTA button */
-.secondary-cta {
-    background-color: #5dade2; /* Blue accent */
-    padding: 10px 25px;
-}
-.secondary-cta:hover {
-    background-color: #4a9fcc;
-}
 
-/* --- Testimonial Section --- */
-.testimonial-section {
-    padding: 50px 20px;
-}
-
+/* --- Testimonial Quote Icon --- */
 .testimonial-quote {
-    text-align: center;
-    font-style: italic;
-    max-width: 700px;
-    margin: 0 auto;
-    position: relative;
-    padding: 20px;
+    padding-left: 30px; /* Make space for the icon */
+    padding-right: 30px;
 }
-/* Add quote marks visually */
+
 .testimonial-quote::before {
+    /* Keep the large background quote mark */
     content: '“';
     font-family: 'Playfair Display', serif;
-    font-size: 4em;
-    color: #e0e0e0;
+    font-size: 5em; /* Slightly larger */
+    color: #e8e8e8; /* Lighter grey */
     position: absolute;
-    left: -10px;
-    top: -10px;
+    left: -15px;
+    top: -20px;
     opacity: 0.8;
     z-index: -1;
 }
 
-.testimonial-quote p {
-    font-size: 1.15em;
-    line-height: 1.7;
-    color: #4a4a4a;
-    margin-bottom: 15px;
+.quote-icon-before { /* Style the small music note icon */
+    position: absolute;
+    left: 0;
+    top: 20px; /* Adjust vertical position */
+    font-size: 1.5em;
+    color: #5dade2; /* Use the blue accent */
+    opacity: 0.7;
 }
 
-.testimonial-quote cite {
-    font-style: normal;
-    font-weight: bold;
-    color: #2c3e50;
-    display: block;
-    margin-top: 10px;
+/* --- Subtle Background Pattern (Optional) --- */
+/* Apply to body or specific sections */
+/*
+body {
+    background-image: url('images/subtle-music-pattern.png'); // Use a very subtle, repeatable pattern
+    background-repeat: repeat;
+}
+*/
+
+/* --- Ensure Hero Image is Set --- */
+.hero-section {
+    /* Make sure this background image is set and the path is correct */
+    background-image: url('images/piano-background.jpg');
+    /* Other hero styles remain the same */
+    position: relative;
+    padding: 60px 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: none;
 }
 
-.simple-link { /* Style for simple text links */
-    color: #5dade2;
-    text-decoration: none;
-    font-weight: bold;
-}
-.simple-link:hover {
-    text-decoration: underline;
-}
+/* --- Ensure other styles from previous steps are present --- */
+/* (Hero overlay, feature grid, feature item hover, etc.) */
 
-
-/* --- General Adjustments --- */
-.content-section {
-    border-top: 1px solid #eee; /* Use top border instead of bottom */
-    padding: 50px 20px; /* Standardized padding */
-}
-.content-section:first-of-type {
-    border-top: none; /* Remove border above the first section */
-}
-
-h2.section-title {
-    margin-bottom: 40px; /* More space below section titles */
-}
-
-/* Ensure footer has some space */
-footer {
-    margin-top: 0; /* Remove margin if content-section provides padding */
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-/* Responsive adjustments for Hero */
-@media (max-width: 768px) {
-    #teacher-intro .intro-text h2 {
-        font-size: 2.2em;
-    }
-     #teacher-intro .intro-text h3 {
-        font-size: 1.3em;
-    }
-    .hero-section {
-        min-height: 350px;
-        padding: 40px 15px;
-    }
-}

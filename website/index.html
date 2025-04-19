@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Piano Classes with Hardik Pandya</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Consider adding Font Awesome for icons -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+    <!-- ADD FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,11 +29,9 @@
 
     <!-- Enhanced Teacher Introduction Section (Hero) -->
     <section id="teacher-intro" class="hero-section">
-        <!-- Background image will be applied via CSS -->
-        <div class="hero-overlay"></div> <!-- Overlay for text readability -->
+        <div class="hero-overlay"></div>
         <div class="intro-content">
             <div class="intro-media">
-                <!-- Image is now smaller or removed if background is sufficient -->
                  <img src="images/teacher-photo.jpg" alt="Photo of Hardik Pandya" class="teacher-photo-small">
             </div>
             <div class="intro-text">
@@ -47,45 +45,60 @@
         </div>
     </section>
 
+    <!-- Optional: Decorative Divider -->
+    <hr class="musical-divider">
+
     <main>
         <!-- Why Learn With Us Section -->
         <section class="content-section features-section">
             <h2 class="section-title">Why Choose Our Lessons?</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <div class="feature-icon">♪</div> <!-- Placeholder Icon -->
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-hand-sparkles fa-beat"></i> <!-- Font Awesome Icon -->
+                    </div>
                     <h4>Personalized Approach</h4>
                     <p>Lessons adapted to your unique learning style, pace, and musical interests.</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">♫</div> <!-- Placeholder Icon -->
+                    <div class="feature-icon">
+                         <i class="fa-solid fa-chalkboard-user fa-beat" style="--fa-animation-duration: 1.5s;"></i> <!-- Font Awesome Icon -->
+                    </div>
                     <h4>Experienced Instructor</h4>
                     <p>Benefit from years of teaching and performance experience with Hardik Pandya.</p>
                 </div>
                 <div class="feature-item">
-                     <div class="feature-icon">♩</div> <!-- Placeholder Icon -->
+                     <div class="feature-icon">
+                         <i class="fa-solid fa-calendar-check fa-beat" style="--fa-animation-duration: 2s;"></i> <!-- Font Awesome Icon -->
+                     </div>
                     <h4>Flexible Scheduling</h4>
                     <p>Easily book and manage your lessons online to fit your busy life.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Lesson Overview Section -->
+        <!-- Lessons Overview Section -->
         <section class="content-section lessons-overview-section" style="background-color: #f8f9fa;">
             <h2 class="section-title">Lessons for Every Level</h2>
              <div class="feature-grid">
                 <div class="feature-item">
-                    <!-- Icon Placeholder -->
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-seedling"></i> <!-- Font Awesome Icon -->
+                    </div>
                     <h4>Beginner</h4>
                     <p>Start your journey with fundamental techniques and simple, enjoyable pieces.</p>
                 </div>
                 <div class="feature-item">
-                    <!-- Icon Placeholder -->
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-line"></i> <!-- Font Awesome Icon -->
+                    </div>
                     <h4>Intermediate</h4>
                     <p>Develop your skills further with more complex music and expressive playing.</p>
                 </div>
                 <div class="feature-item">
-                     <!-- Icon Placeholder -->
+                     <div class="feature-icon">
+                         <i class="fa-solid fa-graduation-cap"></i> <!-- Font Awesome Icon -->
+                     </div>
                     <h4>Advanced</h4>
                     <p>Master challenging repertoire and refine your artistry for performance or exams.</p>
                 </div>
@@ -97,6 +110,8 @@
          <section class="content-section testimonial-section">
             <h2 class="section-title">What Students Say</h2>
             <blockquote class="testimonial-quote">
+                 <!-- Added music note icon before quote -->
+                <i class="fa-solid fa-music quote-icon-before"></i>
                 <p>"Hardik Pandya is an amazing teacher! My playing has improved so much, and lessons are always fun and engaging."</p>
                 <cite>- [Student Name]</cite>
             </blockquote>
